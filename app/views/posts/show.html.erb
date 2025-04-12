@@ -1,0 +1,23 @@
+<h1> <%= @post.tittle %></h1>
+<p><strong>Category:</strong><%= @post.category %></p>
+<p><%= @post.content %></p>
+<%= link_to 'Back', posts_path, class: 'btn btn-secondary' %>
+<%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-primary' %>
+
+
+<!-- <h3> Add a Comment</h3>
+<%= form_with model: [@post,@post.comments.build ] do |form| %>
+<p> <%= form.label :commenter, "Your Name" %><br>
+<%= form.text_field :commenter %></p>
+<p> <%= form.label :body,"Comment" %><br>
+<%= form.text_area :body %></p>
+<p><%= form.submit 'Save' %></p>
+<% end %>
+
+<h3>Comments</h3>
+<% @post.comments.each do |comment|%>
+<p>
+    <strong><%= comment.commenter%></strong>
+    <%= comment.body%> 
+</p>  
+<%end%>   -->

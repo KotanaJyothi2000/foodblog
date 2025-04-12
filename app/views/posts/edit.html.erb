@@ -1,0 +1,37 @@
+<h1>Edit Post</h1>
+<%= form_with model: @post, local: true do |form| %>
+  <% if @post.errors.any? %>
+  <div>
+    <h2> 
+        <%= pluralize(@post.errors.count, "error") %> prohibites thid blog from being saved
+    </h2>
+    <ul>
+        <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div>
+    <%= form.label :tittle%>
+    <%= form.text_field :tittle, class: 'form-control' %>
+  </div>
+
+  <div>
+    <%= form.label :content%>
+    <%= form.text_area :content, class: 'form-control'%>
+  </div>
+
+  <div>
+    <%= form.label :category %>
+    <%= form.select :category, ['Food','Travel','Lifestyle','Tech','Health'], prompt: "Select Category" %>
+  </div>
+
+ <!-- <%= form.hidden_field :admin_user_id, value: current_admin_user.id %> -->
+
+  <div>
+    <%= form.submit 'Update'%>
+  </div>
+  <% end %>
+  <%= link_to 'Back', posts_path, class: 'btn btn-secondary' %>

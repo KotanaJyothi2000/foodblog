@@ -1,0 +1,22 @@
+<h1>Post</h1>
+<%= link_to 'Create New Post',new_post_path, class: 'btn btn-primary'%>
+<table>
+    <thead>
+        <tr>
+            <th>Tittle</th>
+             <th>Category</th>
+              <th>Actions</th>      
+        </tr>
+    </thead>
+    <tbody>
+        <% @posts.each do |post|%>
+        <tr>
+            <td><%= link_to post.tittle,post_path(post) %></td>
+            <td><%= post.category %></td>
+            <td><%= link_to 'Edit',edit_post_path(post) %> </td>
+            <td> <%= button_to 'Delete', post_path(post), method: :delete, data:{turbo_confirm: 'Are You Sure'} %>
+            </td>
+        </tr>
+     <% end %>
+    </tbody>
+</table>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= javascript_importmap_tags %>
+  </head>
+  <body>
+    <%= render "shared/header" %>
+    <div class="container">
+      <div class="row">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+        <nav>
+          <% if admin_user_signed_in? %>
+          <%= link_to "Profile", admin_user_profile_path, class: "nav-link" %>
+          <%= button_to "Sign Out", destroy_admin_user_session_path, method: :delete, class: "nav-link" %>
+          <%end%>
+        </nav>
+        <%= yield %>
+  </body>
+</html>

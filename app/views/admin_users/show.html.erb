@@ -1,0 +1,10 @@
+<h1>Profile</h1>
+<p><strong>Email:</strong>
+<%= @admin_user.email %></p>
+<h2>Your posts</h2>
+<ul>
+    <% @posts.each do |post|%>
+    <li><%= link_to post.tittle, post_path(post)%></li>
+    <% end %>
+</ul>
+
